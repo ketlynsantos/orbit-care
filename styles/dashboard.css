@@ -1,0 +1,44 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-4);
+    min-height: 100vh;
+}
+
+.dashboard__body {
+    display: grid;
+    gap: var(--space-4);
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "map map map alerts"
+        "cards cards cards alerts";
+}
+
+.map {
+    grid-area: map;
+}
+
+.alerts {
+    grid-area: alerts;
+}
+
+.cards {
+    grid-area: cards;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "map"
+            "alerts"
+            "cards";
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
