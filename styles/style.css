@@ -1,0 +1,84 @@
+:root {
+  --base-blue-950: #0B1220;
+  --base-blue-900: #1A2333;
+  --base-blue-800: #243044;
+
+  --base-gray-300: #CBD5E1;
+  --base-gray-400: #94A3B8;
+  --base-gray-500: #64748B;
+
+  --base-white: #F8FAFC;
+
+  --base-cyan-400: #22D3EE;
+  --base-cyan-500: #06B6D4;
+
+  --base-green-500: #22C55E;
+  --base-amber-500: #F59E0B;
+  --base-red-500: #EF4444;
+}
+
+:root {
+  /* Superfícies (backgrounds) */
+  --color-bg-primary: var(--base-blue-950);
+  --color-bg-secondary: var(--base-blue-900);
+  --color-bg-tertiary: var(--base-blue-800);
+
+  /* Textos */
+  --color-text-primary: var(--base-white);
+  --color-text-secondary: var(--base-gray-400);
+  --color-text-muted: var(--base-gray-500);
+
+  /* Brand */
+  --color-brand-primary: var(--base-cyan-400);
+  --color-brand-primary-hover: var(--base-cyan-500);
+
+  /*  Feedbacks/Status */
+  --color-status-success: var(--base-green-500);
+  --color-status-warning: var(--base-amber-500);
+  --color-status-danger: var(--base-red-500);
+
+  /* Bordas */
+  --color-border-default: var(--base-gray-300);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 20px rgba(34, 211, 238, 0.2);
+
+  /* Borda arredondada */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Espaçamento (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+
+  /* Tipografia */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 20px;
+
+  --line-height-sm: 1.2;
+  --line-height-md: 1.4;
+  --line-height-lg: 1.6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
