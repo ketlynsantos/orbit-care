@@ -16,41 +16,52 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <div class="sidebar__logo">
-                    <img src="assets/logotipo.svg" alt="Logotipo OrbitCare">
+                    <img class="sidebar__logo-full" src="assets/logotipo.svg" alt="Logotipo OrbitCare">
+
+                    <img class="sidebar__logo-icon" src="assets/logo-icon.svg" alt="Logotipo OrbitCare">
                 </div>
 
                 <div class="sidebar__nav">
-                    <a href="index.html" class="sidebar__item active">
+                    <a href="index.html" class="sidebar__item active" data-tooltip="Dashboard">
                         <span class="material-symbols-rounded">dashboard</span>
-                        Dashboard
+                        <span class="sidebar__item-label">Dashboard</span>
                     </a>
-                    <a href="#" class="sidebar__item">
+                    <a href="#" class="sidebar__item" data-tooltip="Atendimento">
                         <span class="material-symbols-rounded">health_metrics</span>
-                        Atendimento
+                        <span class="sidebar__item-label">Atendimento</span>
                     </a>
-                    <a href="#" class="sidebar__item">
+                    <a href="#" class="sidebar__item" data-tooltip="Central Médica">
                         <span class="material-symbols-rounded">medical_services</span>
-                        Central Médica
+                        <span class="sidebar__item-label">Central Médica</span>
                     </a>
                 </div>
 
                 <div class="sidebar__footer">
                     <div class="sidebar__status">
-                        <span class="status-dot"></span>
-                        Sistema Online
-                    </div>
+                        <span class="material-symbols-rounded sidebar__status-icon">
+                            satellite_alt
+                        </span>
 
-                    <small>OrbitCare v1.0</small>
+                        <div class="sidebar__status-content">
+                            <span class="sidebar__status-title">
+                                Rede Satelital Operacional
+                            </span>
+
+                            <span class="sidebar__status-subtitle">
+                                12 unidades monitoradas
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="dashboard__content">
                 <div class="toolbar">
                     <div class="toolbar__col">
-                        <button class="toolbar__menu-btn">
+                        <button class="toolbar__menu-btn" id="menuToggle">
                             <span class="material-symbols-rounded">menu</span>
                         </button>
-                        <h1>Central de Operações</h1>
+                        <h2>Central de Operações</h1>
                     </div>
                     <div class="toolbar__col">
                         <span class="toolbar__time"></span>
@@ -87,5 +98,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="js/sidebar.js"></script>
     </body>
 </html>
