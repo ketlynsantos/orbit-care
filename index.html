@@ -56,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            <div class="sidebar-backdrop"></div>
 
             <div class="dashboard__content">
                 <div class="toolbar">
@@ -63,7 +64,7 @@
                         <button class="toolbar__menu-btn" id="menuToggle">
                             <span class="material-symbols-rounded">menu</span>
                         </button>
-                        <h2>Central de Operações</h1>
+                        <h3 class="toolbar__title">Central de Operações</h3>
                     </div>
                     <div class="toolbar__col">
                         <span class="toolbar__time"></span>
@@ -79,26 +80,132 @@
                         <div id="map"></div>
                     </div>
                     <div class="cards">
-                        <div class="cards__item">
+                        <div class="cards__item cards__item--primary">
+                            <div class="cards__icon-wrapper">
+                                <span class="material-symbols-rounded cards__icon">
+                                    local_hospital
+                                </span>
+                            </div>
                             <h3 class="cards__quantity">12</h3>
-                            <span class="cards__title">Unidades Ativas</span>
+                            <span class="cards__title">
+                                Unidades Ativas
+                            </span>
                         </div>
 
-                         <div class="cards__item">
+                        <div class="cards__item cards__item--success">
+                            <div class="cards__icon-wrapper">
+                                <span class="material-symbols-rounded cards__icon">
+                                    groups
+                                </span>
+                            </div>
                             <h3 class="cards__quantity">28</h3>
-                            <span class="cards__title">Comunidades Atendidas</span>
+                            <span class="cards__title">
+                                Comunidades
+                            </span>
                         </div>
 
-                         <div class="cards__item">
+                        <div class="cards__item cards__item--danger">
+                            <div class="cards__icon-wrapper">
+                                <span class="material-symbols-rounded cards__icon">
+                                    warning
+                                </span>
+                            </div>
                             <h3 class="cards__quantity">3</h3>
-                            <span class="cards__title">Alertas Críticos</span>
+                            <span class="cards__title">
+                                Alertas Críticos
+                            </span>
                         </div>
                     </div>
                     <div class="alerts">
                         <h2 class="alerts__title">Alertas Recentes</h2>
-                        <div class="alerts__item">Emergência respiratória - Rio Verde</div>
-                        <div class="alerts__item">Unidade ORB-02 em atendimento</div>
-                        <div class="alerts__item">Comunicação estabelecida</div>
+
+                        <div class="alerts__list">
+                            <div class="alerts__item alerts__item--danger">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    emergency
+                                </span>
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Emergência respiratória
+                                    </span>
+                                    <span class="alerts__location">
+                                        Rio Verde • há 5 min
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="alerts__item alerts__item--warning">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    medical_services
+                                </span>
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Unidade ORB-02
+                                    </span>
+                                    <span class="alerts__location">
+                                        Em atendimento • há 12 min
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="alerts__item alerts__item--success">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    satellite_alt
+                                </span>
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Comunicação estabelecida
+                                    </span>
+                                    <span class="alerts__location">
+                                        Comunidade Esperança • agora
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="alerts__item alerts__item--warning">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    emergency_share
+                                </span>
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Transporte solicitado
+                                    </span>
+                                    <span class="alerts__location">
+                                        Hospital Regional • há 18 min
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="alerts__item alerts__item--primary">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    local_shipping
+                                </span>
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Unidade ORB-05
+                                    </span>
+                                    <span class="alerts__location">
+                                        Em deslocamento • há 24 min
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="alerts__item alerts__item--success">
+                                <span class="material-symbols-rounded alerts__icon">
+                                    settings_input_antenna
+                                </span>
+
+                                <div class="alerts__content">
+                                    <span class="alerts__label">
+                                        Satélite sincronizado
+                                    </span>
+                                    <span class="alerts__location">
+                                        GEO-01 • há 30 min
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
