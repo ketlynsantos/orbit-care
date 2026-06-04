@@ -24,7 +24,7 @@
     color: var(--color-text-primary);
     font-size: var(--font-sm);
     font-weight: 600
-};
+}
 
 .popup__infos {
     display: flex;
