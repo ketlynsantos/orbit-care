@@ -24,7 +24,7 @@
 :root {
   /* Superfícies (backgrounds) */
   --color-bg-default: var(--base-gray-50);
-
+  --color-bg-primary: var(--base-white);
   --color-bg-sidebar-primary: var(--base-primary-700);
   --color-bg-sidebar-secondary: var(--base-primary-500);
 
@@ -43,16 +43,18 @@
   /* Textos */
   --color-text-primary: var(--base-gray-900);
   --color-text-secondary: var(--base-gray-500);
+  --color-text-inverse: var(--base-white);
   --color-text-muted: var(--base-gray-400);
 
   --color-text-sidebar: var(--base-white);
-  --color-text-sidebar-secondary: rgba(255,255,255,.75);
+  --color-text-sidebar-secondary: rgba(255, 255, 255, .75);
 
   /*  Feedbacks/Status */
   --color-status-primary: var(--base-gray-900);
   --color-status-success: var(--base-green-500);
   --color-status-warning: var(--base-amber-500);
-  --color-status-danger: var(--base-red-500);
+  --color-status-danger: var(--base-red-400);
+  --color-status-critic: var(--base-red-500);
 
   /* Icones */
   --color-icon-primary: var(--base-white);
@@ -102,12 +104,77 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg-default);
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
 .u-border-bottom {
   border-bottom: 1px solid var(--color-border-default);
 }
 
 .u-padding-horizontal-bottom {
   padding: 0 0 var(--space-3);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.btn .material-symbols-rounded {
+  font-size: var(--font-lg);
+}
+
+.btn--primary {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn--primary:hover {
+  background: var(--color-action-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+.btn--secondary {
+  background: var(--color-surface-primary);
+  color: var(--color-text-primary);
+
+  border: 1px solid var(--color-border-default);
+}
+
+.btn--secondary:hover {
+  background: var(--base-gray-50);
+  border-color: var(--base-gray-300);
 }
 
 .sidebar {
@@ -186,26 +253,26 @@ body {
   justify-content: flex-start;
   padding: 12px 16px;
   gap: var(--space-2);
-  
+
   text-decoration: none;
   color: var(--color-text-sidebar) !important;
   font-size: var(--font-md);
   font-weight: 500;
 
   box-sizing: border-box;
-   
+
   transition:
     background-color .2s ease,
     transform .2s ease;
 }
 
 .sidebar__item:hover {
-  background-color: rgba(255,255,255,.10);
+  background-color: rgba(255, 255, 255, .10);
   transform: translateX(1px);
 }
 
 .sidebar__item.active {
-  background: rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, .15);
   font-weight: 600;
 
   box-shadow:
@@ -257,7 +324,7 @@ body {
 
 .sidebar__footer {
   padding-top: var(--space-5);
-  border-top: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255, 255, 255, .12);
 }
 
 .sidebar__status {
@@ -387,6 +454,47 @@ body {
 
 .leaflet-popup-tip {
   box-shadow: none;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-xs);
+  font-weight: 600;
+}
+
+.badge--success {
+  background: rgba(34, 197, 94, .12);
+  color: var(--color-status-success);
+}
+
+.badge--warning {
+  background: rgba(245, 158, 11, .12);
+  color: var(--color-status-warning);
+}
+
+.badge--danger {
+  background: rgba(239, 68, 68, .12);
+  color: var(--color-status-danger);
+}
+
+.badge--critic {
+  background: rgba(220, 38, 38, .12);
+  color: var(--color-status-critic);
+}
+
+.badge--neutral {
+  background: rgba(100, 116, 139, .12);
+  color: var(--color-text-secondary);
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: 80px 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {

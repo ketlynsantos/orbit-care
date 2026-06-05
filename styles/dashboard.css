@@ -1,9 +1,3 @@
-.dashboard {
-    display: flex;
-    min-height: 100vh;
-    background: var(--color-bg-default);
-}
-
 .dashboard__content {
     flex: 1;
     background: var(--color-bg-default);
@@ -234,10 +228,6 @@
 }
 
 @media (max-width: 1024px) {
-    .dashboard {
-        grid-template-columns: 80px 1fr;
-    }
-
     .dashboard__body {
         grid-template-columns: 1fr;
         grid-template-areas:
