@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/patients.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <title>OrbitCare</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <img class="sidebar__logo-full" src="/assets/logotipo.svg" alt="Logotipo OrbitCare">
+            <img class="sidebar__logo-icon" src="/assets/logo-icon.svg" alt="Logotipo OrbitCare">
+        </div>
+
+        <div class="sidebar__nav">
+            <a href="/index.html" class="sidebar__item" data-tooltip="Dashboard">
+                <span class="material-symbols-rounded">dashboard</span>
+                <span class="sidebar__item-label">Dashboard</span>
+            </a>
+            <a href="patients.html" class="sidebar__item active" data-tooltip="Pacientes">
+                <span class="material-symbols-rounded">health_metrics</span>
+                <span class="sidebar__item-label">Pacientes</span>
+            </a>
+            <a href="#" class="sidebar__item" data-tooltip="Central Médica">
+                <span class="material-symbols-rounded">medical_services</span>
+                <span class="sidebar__item-label">Central Médica</span>
+            </a>
+        </div>
+
+        <div class="sidebar__footer">
+            <div class="sidebar__status">
+                <span class="material-symbols-rounded sidebar__status-icon">satellite_alt</span>
+                <div class="sidebar__status-content">
+                    <span class="sidebar__status-title">Rede Satelital Operacional</span>
+                    <span class="sidebar__status-subtitle">12 unidades monitoradas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-backdrop"></div>
+
+    <div class="patients__content">
+        <div class="toolbar">
+            <div class="toolbar__col">
+                <button class="toolbar__menu-btn" id="menuToggle">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h3 class="toolbar__title">Atendimento</h3>
+            </div>
+            <div class="toolbar__col">
+                <span class="toolbar__time"></span>
+                <span class="toolbar__sattelite">
+                    <span class="toolbar__sattelite-dot"></span>
+                    Satélite Online
+                </span>
+            </div>
+        </div>
+
+        <div class="patients__body">
+            <!-- Resumo -->
+            <div class="patients__summary">
+                <div class="patients__summary-card">
+                    <span class="patients__summary-label">Pacientes Ativos</span>
+                    <h3 class="patients__summary-value">42</h3>
+                </div>
+                <div class="patients__summary-card">
+                    <h3 class="patients__summary-value">12</h3>
+                    <span class="patients__summary-label">Em Atendimento</span>
+                </div>
+                <div class="patients__summary-card">
+                    <h3 class="patients__summary-value">3</h3>
+                    <span class="patients__summary-label">Casos Críticos</span>
+                </div>
+                <div class="patients__summary-card">
+                    <h3 class="patients__summary-value">28</h3>
+                    <span class="patients__summary-label">Comunidades Assistidas</span>
+                </div>
+            </div>
+
+            <!-- Ações -->
+            <div class="patients__actions">
+                <div class="patients__search">
+                    <span class="material-symbols-rounded">search</span>
+                    <input id="searchPatient" class="patients__search-input" type="text"
+                        placeholder="Buscar paciente...">
+                </div>
+
+                <div class="patients__filters">
+                    <select id="statusFilter" class="patients__filter">
+                        <option value="">Todos Status</option>
+                        <option value="Em Atendimento">Em Atendimento</option>
+                        <option value="Monitoramento">Monitoramento</option>
+                        <option value="Finalizado">Finalizado</option>
+                    </select>
+                    <select id="communityFilter" class="patients__filter">
+                        <option value="">Todas Comunidades</option>
+                    </select>
+                </div>
+
+                <button id="btnNewPatient" class="btn btn--primary">
+                    <span class="material-symbols-rounded">add</span>
+                    Novo Paciente
+                </button>
+            </div>
+
+            <!-- Tabela -->
+            <div class="patients__table-card">
+                <table class="patients__table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Paciente</th>
+                            <th>Comunidade</th>
+                            <th>Ocorrência</th>
+                            <th>Unidade</th>
+                            <th>Status</th>
+                            <th>Prioridade</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientsTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Paginação -->
+            <div class="patients__pagination">
+                <button id="prevPage" class="patients__pagination-button">Anterior</button>
+                <span id="pageInfo" class="patients__pagination-info"></span>
+                <button id="nextPage" class="patients__pagination-button">Próxima</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="patientModal" class="modal hidden">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <div>
+                    <h2 id="modalTitle">Paciente</h2>
+                    <span id="modalSubtitle"></span>
+                </div>
+                <button class="modal__close">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+
+            <div class="modal__body">
+                <section class="patient-section">
+                    <div class="patient-status">
+                        <span id="patientPriority" class="badge"></span>
+                        <span id="patientStatus" class="badge"></span>
+                    </div>
+                </section>
+
+                <section class="patient-section">
+                    <h3>Dados Pessoais</h3>
+                    <div class="patient-grid">
+                        <div class="patient-field">
+                            <label>Nome</label>
+                            <div data-field="name"></div>
+                        </div>
+                        <div class="patient-field">
+                            <label>Idade</label>
+                            <div data-field="age"></div>
+                        </div>
+                        <div class="patient-field">
+                            <label>Sexo</label>
+                            <div data-field="gender"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="patient-section">
+                    <h3>Atendimento</h3>
+                    <div class="patient-grid">
+                        <div class="patient-field">
+                            <label>Comunidade</label>
+                            <div data-field="community"></div>
+                        </div>
+                        <div class="patient-field">
+                            <label>Ocorrência</label>
+                            <div data-field="occurrence"></div>
+                        </div>
+                        <div class="patient-field">
+                            <label>Unidade</label>
+                            <div data-field="unit"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="patient-section">
+                    <h3>Observações</h3>
+                    <div data-field="notes"></div>
+                </section>
+            </div>
+
+            <div class="modal__footer">
+                <button id="cancelBtn" class="btn btn--secondary">Cancelar</button>
+                <button id="saveBtn" class="btn btn--primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/helper.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/patient.js"></script>
+</body>
+
+</html>

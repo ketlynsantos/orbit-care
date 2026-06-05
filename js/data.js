@@ -155,8 +155,36 @@ const UNITS = [
     }
 ];
 
+const PATIENTS = [
+    {
+        id: "P001",
+        name: "João Silva",
+        age: 52,
+        gender: "Masculino",
+        community: "Rio Verde",
+        occurrence: "Emergência Respiratória",
+        unit: "ORB-02",
+        priority: "Crítica",
+        status: "Em Atendimento",
+        notes: "Paciente com dificuldade respiratória."
+    },
+    {
+        id: "P002",
+        name: "Maria Souza",
+        age: 34,
+        gender: "Feminino",
+        community: "Nova Esperança",
+        occurrence: "Gestação de Risco",
+        unit: "ORB-05",
+        priority: "Alta",
+        status: "Monitoramento",
+        notes: "Acompanhamento semanal."
+    }
+];
+
 window.Mock = {
-  UNITS,
-  COMMUNITIES,
-  EMERGENCIES
+    UNITS,
+    COMMUNITIES,
+    EMERGENCIES,
+    PATIENTS
 }
