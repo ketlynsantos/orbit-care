@@ -188,8 +188,8 @@ const MEDICAL_CASES = [
         patient: {
             name: "Maria Souza",
             age: 67,
-            community: "Rio Verde",
-            unit: "ORB-02"
+            community: "Nova Esperança",
+            unit: "ORB-05"
         },
         status: "Crítica",
         vitals: {
@@ -218,8 +218,8 @@ const MEDICAL_CASES = [
         patient: {
             name: "João Silva",
             age: 54,
-            community: "Nova Esperança",
-            unit: "ORB-05"
+            community: "Rio Verde",
+            unit: "ORB-02"
         },
         status: "Média",
         vitals: {
