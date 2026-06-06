@@ -182,9 +182,69 @@ const PATIENTS = [
     }
 ];
 
+const MEDICAL_CASES = [
+    {
+        id: "CASE001",
+        patient: {
+            name: "Maria Souza",
+            age: 67,
+            community: "Rio Verde",
+            unit: "ORB-02"
+        },
+        status: "Crítica",
+        vitals: {
+            heartRate: 110,
+            spo2: 88,
+            pressure: "15x10"
+        },
+        aiAnalysis: {
+            diagnosis: "Pneumonia",
+            confidence: 82,
+            recommendation: "Transferência prioritária."
+        },
+        messages: [
+            {
+                sender: "ORB-02",
+                text: "Paciente com falta de ar."
+            },
+            {
+                sender: "Especialista",
+                text: "Iniciar oxigênio suplementar."
+            }
+        ]
+    },
+    {
+        id: "CASE002",
+        patient: {
+            name: "João Silva",
+            age: 54,
+            community: "Nova Esperança",
+            unit: "ORB-05"
+        },
+        status: "Média",
+        vitals: {
+            heartRate: 94,
+            spo2: 95,
+            pressure: "13x08"
+        },
+        aiAnalysis: {
+            diagnosis: "Infecção Respiratória",
+            confidence: 71,
+            recommendation: "Monitoramento contínuo."
+        },
+        messages: [
+            {
+                sender: "ORB-05",
+                text: "Paciente com febre."
+            }
+        ]
+    }
+];
+
 window.Mock = {
     UNITS,
     COMMUNITIES,
     EMERGENCIES,
-    PATIENTS
+    PATIENTS,
+    MEDICAL_CASES
 }

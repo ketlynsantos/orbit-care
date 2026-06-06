@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/medical-center.css" />
+    <title>OrbitCare</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <img class="sidebar__logo-full" src="/assets/logotipo.svg" alt="Logotipo OrbitCare" />
+            <img class="sidebar__logo-icon" src="/assets/logo-icon.svg" alt="Logotipo OrbitCare" />
+        </div>
+
+        <div class="sidebar__nav">
+            <a href="/index.html" class="sidebar__item" data-tooltip="Dashboard">
+                <span class="material-symbols-rounded">dashboard</span>
+                <span class="sidebar__item-label">Dashboard</span>
+            </a>
+            <a href="/views/patients.html" class="sidebar__item" data-tooltip="Pacientes">
+                <span class="material-symbols-rounded">health_metrics</span>
+                <span class="sidebar__item-label">Pacientes</span>
+            </a>
+            <a href="/views/medical-center.html" class="sidebar__item active" data-tooltip="Central Médica">
+                <span class="material-symbols-rounded">medical_services</span>
+                <span class="sidebar__item-label">Central Médica</span>
+            </a>
+        </div>
+
+        <div class="sidebar__footer">
+            <div class="sidebar__status">
+                <span class="material-symbols-rounded sidebar__status-icon">satellite_alt</span>
+                <div class="sidebar__status-content">
+                    <span class="sidebar__status-title">Rede Satelital Operacional</span>
+                    <span class="sidebar__status-subtitle">12 unidades monitoradas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-backdrop"></div>
+
+    <div class="medical-center__content">
+        <div class="toolbar">
+            <div class="toolbar__col">
+                <button class="toolbar__menu-btn" id="menuToggle">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h3 class="toolbar__title">Atendimento</h3>
+            </div>
+            <div class="toolbar__col">
+                <span class="toolbar__time"></span>
+                <span class="toolbar__sattelite">
+                    <span class="toolbar__sattelite-dot"></span>
+                    Satélite Online
+                </span>
+            </div>
+        </div>
+
+        <div class="medical-center__body">
+            <!-- Fila -->
+            <aside class="medical-center__queue">
+                <div class="medical-center__panel-header">
+                    <h3>Fila de Casos</h3>
+                </div>
+
+                <div id="casesList" class="medical-center__queue-list"></div>
+            </aside>
+
+            <!-- Atendimento -->
+            <main class="medical-center__case-details">
+                <div class="medical-center__panel-header">
+                    <h3>Atendimento Remoto</h3>
+                </div>
+
+                <div class="medical-center__patient">
+                    <div class="medical-center__patient-grid">
+                        <div>
+                            <span>Paciente</span>
+                            <strong id="patientName"></strong>
+                        </div>
+
+                        <div>
+                            <span>Idade</span>
+                            <strong id="patientAge"></strong>
+                        </div>
+
+                        <div>
+                            <span>Comunidade</span>
+                            <strong id="patientCommunity"></strong>
+                        </div>
+
+                        <div>
+                            <span>Unidade</span>
+                            <strong id="patientUnit"></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="medical-center__section">
+                    <h4>Sinais Vitais</h4>
+
+                    <div class="medical-center__vitals">
+                        <div class="medical-center__vital-card">
+                            <div class="medical-center__vital-header">
+                                <span class="material-symbols-rounded">favorite</span>
+                                <span class="medical-center__vital-label">Frequência Cardíaca</span>
+                            </div>
+                            <strong id="heartRate" class="medical-center__vital-value"></strong>
+                        </div>
+
+                        <div class="medical-center__vital-card">
+                            <div class="medical-center__vital-header">
+                                <span class="material-symbols-rounded">blood_pressure</span>
+                                <span class="medical-center__vital-label">Pressão Arterial</span>
+                            </div>
+                            <strong id="pressure" class="medical-center__vital-value"></strong>
+                        </div>
+
+                        <div class="medical-center__vital-card">
+                            <div class="medical-center__vital-header">
+                                <span class="material-symbols-rounded">pulmonology</span>
+                                <span class="medical-center__vital-label">Saturação</span>
+                            </div>
+                            <strong id="spo2" class="medical-center__vital-value"></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="medical-center__section">
+                    <h4>Observações Clínicas</h4>
+                    <p id="patientNotes">Nenhuma observação registrada.</p>
+                </div>
+            </main>
+
+            <!-- IA + Chat -->
+            <aside class="medical-center__assistant">
+                <div class="medical-center__panel-header">
+                    <h3>Orbit AI</h3>
+                </div>
+
+                <div class="medical-center__ai-card">
+                    <span class="medical-center__ai-label"> Diagnóstico Sugerido </span>
+                    <h4 id="aiDiagnosis"></h4>
+                    <span id="aiConfidence" class="medical-center__ai-confidence"></span>
+                    <p id="aiRecommendation"></p>
+                </div>
+                <div id="chatMessages" class="medical-center__chat"></div>
+                <div class="medical-center__chat-input">
+                    <input id="messageInput" type="text" placeholder="Enviar orientação..." />
+                    <button id="sendMessageBtn" class="btn btn--primary">Enviar</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="/js/helper.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/medical-center.js"></script>
+</body>
+
+</html>
