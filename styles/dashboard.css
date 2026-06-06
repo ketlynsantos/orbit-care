@@ -13,7 +13,7 @@
     flex: 1;
     display: grid;
     gap: var(--space-4);
-    padding: var(--space-6);
+    padding: var(--space-4);
 
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
