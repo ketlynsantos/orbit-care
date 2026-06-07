@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/favicon-back.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -11,10 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/dashboard.css">
-    <link rel="stylesheet" href="/styles/popup.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="/styles/about.css">
     <title>OrbitCare</title>
 </head>
 
@@ -27,7 +25,11 @@
         </div>
 
         <div class="sidebar__nav">
-            <a href="/index.html" class="sidebar__item active" data-tooltip="Dashboard">
+            <a href="/index.html" class="sidebar__item active" data-tooltip="Visão Geral">
+                <span class="material-symbols-rounded">home</span>
+                <span class="sidebar__item-label">Visão Geral</span>
+            </a>
+            <a href="/views/dashboard.html" class="sidebar__item" data-tooltip="Dashboard">
                 <span class="material-symbols-rounded">dashboard</span>
                 <span class="sidebar__item-label">Dashboard</span>
             </a>
@@ -53,115 +55,48 @@
     </div>
     <div class="sidebar-backdrop"></div>
 
-    <div class="dashboard__content">
+    <div class="about__content">
         <div class="toolbar">
             <div class="toolbar__col">
                 <button class="toolbar__menu-btn" id="menuToggle">
                     <span class="material-symbols-rounded">menu</span>
                 </button>
-                <h3 class="toolbar__title">Central de Operações</h3>
-            </div>
-            <div class="toolbar__col">
-                <span class="toolbar__time"></span>
-                <span class="toolbar__sattelite">
-                    <span class="toolbar__sattelite-dot"></span>
-                    Satélite Online
-                </span>
+                <h3 class="toolbar__title">Visão Geral</h3>
             </div>
         </div>
-        <div class="dashboard__body">
-            <div class="map">
-                <button id="resetMap" class="map__reset-btn">Ver Brasil</button>
-                <div id="map"></div>
-            </div>
-            <div class="cards">
-                <div class="cards__item cards__item--primary">
-                    <div class="cards__icon-wrapper">
-                        <span class="material-symbols-rounded cards__icon">local_hospital</span>
-                    </div>
-                    <h3 class="cards__quantity">12</h3>
-                    <span class="cards__title">Unidades Ativas</span>
-                </div>
-
-                <div class="cards__item cards__item--success">
-                    <div class="cards__icon-wrapper">
-                        <span class="material-symbols-rounded cards__icon">groups</span>
-                    </div>
-                    <h3 class="cards__quantity">28</h3>
-                    <span class="cards__title">Comunidades</span>
-                </div>
-
-                <div class="cards__item cards__item--danger">
-                    <div class="cards__icon-wrapper">
-                        <span class="material-symbols-rounded cards__icon">warning</span>
-                    </div>
-                    <h3 class="cards__quantity">3</h3>
-                    <span class="cards__title">Alertas Críticos</span>
-                </div>
-            </div>
-            <div class="alerts">
-                <h2 class="alerts__title">Alertas Recentes</h2>
-
-                <div class="alerts__list">
-                    <div class="alerts__item alerts__item--danger">
-                        <span class="material-symbols-rounded alerts__icon">emergency</span>
-                        <div class="alerts__content">
-                            <span class="alerts__label">Emergência respiratória</span>
-                            <span class="alerts__location">Rio Verde • há 5 min</span>
-                        </div>
-                    </div>
-
-                    <div class="alerts__item alerts__item--warning">
-                        <span class="material-symbols-rounded alerts__icon">medical_services</span>
-                        <div class="alerts__content">
-                            <span class="alerts__label">Unidade ORB-02</span>
-                            <span class="alerts__location">Em atendimento • há 12 min</span>
-                        </div>
-                    </div>
-
-                    <div class="alerts__item alerts__item--success">
-                        <span class="material-symbols-rounded alerts__icon">satellite_alt</span>
-                        <div class="alerts__content">
-                            <span class="alerts__label">Comunicação estabelecida</span>
-                            <span class="alerts__location">Comunidade Esperança • agora</span>
-                        </div>
-                    </div>
-
-                    <div class="alerts__item alerts__item--warning">
-                        <span class="material-symbols-rounded alerts__icon">emergency_share</span>
-                        <div class="alerts__content">
-                            <span class="alerts__label">Transporte solicitado</span>
-                            <span class="alerts__location">Hospital Regional • há 18 min</span>
-                        </div>
-                    </div>
-
-                    <div class="alerts__item alerts__item--primary">
-                        <span class="material-symbols-rounded alerts__icon">local_shipping</span>
-                        <div class="alerts__content">
-                            <span class="alerts__label">Unidade ORB-05</span>
-                            <span class="alerts__location">Em deslocamento • há 24 min</span>
-                        </div>
-                    </div>
-
-                    <div class="alerts__item alerts__item--success">
-                        <span class="material-symbols-rounded alerts__icon">settings_input_antenna</span>
-
-                        <div class="alerts__content">
-                            <span class="alerts__label">Satélite sincronizado</span>
-                            <span class="alerts__location">GEO-01 • há 30 min</span>
-                        </div>
-                    </div>
-
+        <div class="about__body">
+            <div class="about__hero">
+                <span class="about__eyebrow">FIAP Global Solution 2026</span>
+                <h1 class="about__title">OrbitCare</h1>
+                <p class="about__description">
+                    Plataforma para atendimento médico remoto em comunidades isoladas,
+                    conectando unidades móveis de saúde a especialistas através de
+                    comunicação via satélite.
+                </p>
+                <ul class="about__features">
+                    <li>
+                        <strong>Atendimento remoto</strong>
+                        para regiões com acesso limitado à saúde.
+                    </li>
+                    <li>
+                        <strong>Monitoramento de pacientes</strong>
+                        durante todo o ciclo de atendimento.
+                    </li>
+                    <li>
+                        <strong>Suporte especializado</strong>
+                        através da Central Médica.
+                    </li>
+                </ul>
+                <div class="about__actions">
+                    <a href="/views/dashboard.html" class="btn btn--primary">Dashboard</a>
+                    <a href="/views/patients.html" class="btn btn--secondary">Pacientes</a>
+                    <a href="/views/medical-center.html" class="btn btn--secondary">Central Médica</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="/js/data.js"></script>
     <script src="/js/sidebar.js"></script>
-    <script src="/js/map.js"></script>
 </body>
 
 </html>

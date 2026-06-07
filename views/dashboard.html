@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/favicon-back.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <link rel="stylesheet" href="/styles/popup.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <title>OrbitCare</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <img class="sidebar__logo-full" src="/assets/logotipo.svg" alt="Logotipo OrbitCare">
+            <img class="sidebar__logo-icon" src="/assets/logo-icon.svg" alt="Logotipo OrbitCare">
+        </div>
+
+        <div class="sidebar__nav">
+            <a href="/index.html" class="sidebar__item" data-tooltip="Visão Geral">
+                <span class="material-symbols-rounded">home</span>
+                <span class="sidebar__item-label">Visão Geral</span>
+            </a>
+            <a href="/views/dashboard.html" class="sidebar__item active" data-tooltip="Dashboard">
+                <span class="material-symbols-rounded">dashboard</span>
+                <span class="sidebar__item-label">Dashboard</span>
+            </a>
+            <a href="/views/patients.html" class="sidebar__item" data-tooltip="Pacientes">
+                <span class="material-symbols-rounded">health_metrics</span>
+                <span class="sidebar__item-label">Pacientes</span>
+            </a>
+            <a href="/views/medical-center.html" class="sidebar__item" data-tooltip="Central Médica">
+                <span class="material-symbols-rounded">medical_services</span>
+                <span class="sidebar__item-label">Central Médica</span>
+            </a>
+        </div>
+
+        <div class="sidebar__footer">
+            <div class="sidebar__status">
+                <span class="material-symbols-rounded sidebar__status-icon">satellite_alt</span>
+                <div class="sidebar__status-content">
+                    <span class="sidebar__status-title">Rede Satelital Operacional</span>
+                    <span class="sidebar__status-subtitle">12 unidades monitoradas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-backdrop"></div>
+
+    <div class="dashboard__content">
+        <div class="toolbar">
+            <div class="toolbar__col">
+                <button class="toolbar__menu-btn" id="menuToggle">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h3 class="toolbar__title">Central de Operações</h3>
+            </div>
+            <div class="toolbar__col">
+                <span class="toolbar__time"></span>
+                <span class="toolbar__sattelite">
+                    <span class="toolbar__sattelite-dot"></span>
+                    Satélite Online
+                </span>
+            </div>
+        </div>
+        <div class="dashboard__body">
+            <div class="map">
+                <button id="resetMap" class="map__reset-btn">Ver Brasil</button>
+                <div id="map"></div>
+            </div>
+            <div class="cards">
+                <div class="cards__item cards__item--primary">
+                    <div class="cards__icon-wrapper">
+                        <span class="material-symbols-rounded cards__icon">local_hospital</span>
+                    </div>
+                    <h3 class="cards__quantity">12</h3>
+                    <span class="cards__title">Unidades Ativas</span>
+                </div>
+
+                <div class="cards__item cards__item--success">
+                    <div class="cards__icon-wrapper">
+                        <span class="material-symbols-rounded cards__icon">groups</span>
+                    </div>
+                    <h3 class="cards__quantity">28</h3>
+                    <span class="cards__title">Comunidades</span>
+                </div>
+
+                <div class="cards__item cards__item--danger">
+                    <div class="cards__icon-wrapper">
+                        <span class="material-symbols-rounded cards__icon">warning</span>
+                    </div>
+                    <h3 class="cards__quantity">3</h3>
+                    <span class="cards__title">Alertas Críticos</span>
+                </div>
+            </div>
+            <div class="alerts">
+                <h2 class="alerts__title">Alertas Recentes</h2>
+
+                <div class="alerts__list">
+                    <div class="alerts__item alerts__item--danger">
+                        <span class="material-symbols-rounded alerts__icon">emergency</span>
+                        <div class="alerts__content">
+                            <span class="alerts__label">Emergência respiratória</span>
+                            <span class="alerts__location">Rio Verde • há 5 min</span>
+                        </div>
+                    </div>
+
+                    <div class="alerts__item alerts__item--warning">
+                        <span class="material-symbols-rounded alerts__icon">medical_services</span>
+                        <div class="alerts__content">
+                            <span class="alerts__label">Unidade ORB-02</span>
+                            <span class="alerts__location">Em atendimento • há 12 min</span>
+                        </div>
+                    </div>
+
+                    <div class="alerts__item alerts__item--success">
+                        <span class="material-symbols-rounded alerts__icon">satellite_alt</span>
+                        <div class="alerts__content">
+                            <span class="alerts__label">Comunicação estabelecida</span>
+                            <span class="alerts__location">Comunidade Esperança • agora</span>
+                        </div>
+                    </div>
+
+                    <div class="alerts__item alerts__item--warning">
+                        <span class="material-symbols-rounded alerts__icon">emergency_share</span>
+                        <div class="alerts__content">
+                            <span class="alerts__label">Transporte solicitado</span>
+                            <span class="alerts__location">Hospital Regional • há 18 min</span>
+                        </div>
+                    </div>
+
+                    <div class="alerts__item alerts__item--primary">
+                        <span class="material-symbols-rounded alerts__icon">local_shipping</span>
+                        <div class="alerts__content">
+                            <span class="alerts__label">Unidade ORB-05</span>
+                            <span class="alerts__location">Em deslocamento • há 24 min</span>
+                        </div>
+                    </div>
+
+                    <div class="alerts__item alerts__item--success">
+                        <span class="material-symbols-rounded alerts__icon">settings_input_antenna</span>
+
+                        <div class="alerts__content">
+                            <span class="alerts__label">Satélite sincronizado</span>
+                            <span class="alerts__location">GEO-01 • há 30 min</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/map.js"></script>
+</body>
+
+</html>
