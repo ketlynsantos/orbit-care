@@ -4,10 +4,7 @@ const COMMUNITIES = [
         inhabitants: 1240,
         distanceHospital: "85 km",
         connectivity: "Via satélite",
-        risks: [
-            "Doenças respiratórias",
-            "Hipertensão"
-        ],
+        risks: ["Doenças respiratórias", "Hipertensão"],
         activeUnit: "ORB-02",
         lat: -3.119,
         lng: -60.021
@@ -17,10 +14,7 @@ const COMMUNITIES = [
         inhabitants: 860,
         distanceHospital: "120 km",
         connectivity: "Via satélite",
-        risks: [
-            "Gestação de risco",
-            "Diabetes"
-        ],
+        risks: ["Gestação de risco", "Diabetes"],
         activeUnit: "ORB-05",
         lat: -2.443,
         lng: -54.708
@@ -30,10 +24,8 @@ const COMMUNITIES = [
         inhabitants: 540,
         distanceHospital: "150 km",
         connectivity: "Via satélite",
-        risks: [
-            "Acidentes de trabalho"
-        ],
-        activeUnit: "ORB-03",
+        risks: ["Acidentes de trabalho"],
+        activeUnit: "ORB-09",
         lat: -9.974,
         lng: -67.824
     }
@@ -44,22 +36,22 @@ const EMERGENCIES = [
         community: "Rio Verde",
         type: "Emergência respiratória",
         priority: "alta",
-        lat: -3.109,
-        lng: -60.011
+        lat: -3.112,
+        lng: -60.005
     },
     {
         community: "Nova Esperança",
         type: "Gestante de risco",
         priority: "alta",
-        lat: -2.443,
-        lng: -54.708
+        lat: -2.436,
+        lng: -54.700
     },
     {
         community: "São Lucas",
         type: "Acidente de trabalho",
         priority: "alta",
-        lat: -9.974,
-        lng: -67.824
+        lat: -9.966,
+        lng: -67.815
     }
 ];
 
@@ -76,22 +68,22 @@ const UNITS = [
         id: "ORB-02",
         status: "atendimento",
         community: "Rio Verde",
-        lat: -3.129,
-        lng: -60.031
+        lat: -3.123,
+        lng: -60.028
     },
     {
         id: "ORB-03",
         status: "deslocamento",
         community: "Rio Verde",
-        lat: -3.125,
-        lng: -60.030
+        lat: -3.128,
+        lng: -60.034
     },
     {
         id: "ORB-04",
         status: "retorno",
         community: "Rio Verde",
-        lat: -3.130,
-        lng: -60.010
+        lat: -3.133,
+        lng: -60.012
     },
 
     // Nova Esperança
@@ -99,29 +91,29 @@ const UNITS = [
         id: "ORB-05",
         status: "atendimento",
         community: "Nova Esperança",
-        lat: -2.443,
-        lng: -54.708
+        lat: -2.447,
+        lng: -54.703
     },
     {
         id: "ORB-06",
         status: "atendimento",
         community: "Nova Esperança",
-        lat: -2.450,
-        lng: -54.700
+        lat: -2.451,
+        lng: -54.697
     },
     {
         id: "ORB-07",
         status: "deslocamento",
         community: "Nova Esperança",
-        lat: -2.435,
-        lng: -54.715
+        lat: -2.438,
+        lng: -54.716
     },
     {
         id: "ORB-08",
         status: "retorno",
         community: "Nova Esperança",
-        lat: -2.455,
-        lng: -54.720
+        lat: -2.456,
+        lng: -54.723
     },
 
     // São Lucas
@@ -129,29 +121,29 @@ const UNITS = [
         id: "ORB-09",
         status: "atendimento",
         community: "São Lucas",
-        lat: -9.974,
-        lng: -67.824
+        lat: -9.978,
+        lng: -67.820
     },
     {
         id: "ORB-10",
         status: "atendimento",
         community: "São Lucas",
-        lat: -9.980,
-        lng: -67.818
+        lat: -9.983,
+        lng: -67.814
     },
     {
         id: "ORB-11",
         status: "deslocamento",
         community: "São Lucas",
-        lat: -9.968,
-        lng: -67.832
+        lat: -9.969,
+        lng: -67.833
     },
     {
         id: "ORB-12",
         status: "retorno",
         community: "São Lucas",
-        lat: -9.985,
-        lng: -67.840
+        lat: -9.987,
+        lng: -67.842
     }
 ];
 
