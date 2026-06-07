@@ -1,21 +1,25 @@
 // Localização Brasil
-const map = L.map('map').setView([-14.2350, -51.9253], 4);
-const unitIcon = L.divIcon({
-    className: "custom-marker",
-    html: "🚐",
-    iconSize: [30, 30]
+const map = L.map("map").setView([-5, -60], 5);
+
+const unitIcon = L.icon({
+    iconUrl: '/assets/marker-unit.svg',
+    iconSize: [31, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -36]
 });
 
-const communityIcon = L.divIcon({
-    className: "custom-marker",
-    html: "🏘️",
-    iconSize: [30, 30]
+const communityIcon =  L.icon({
+    iconUrl: '/assets/marker-community.svg',
+    iconSize: [31, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -36]
 });
 
-const emergencyIcon = L.divIcon({
-    className: "custom-marker",
-    html: "🚨",
-    iconSize: [30, 30]
+const emergencyIcon =  L.icon({
+    iconUrl: '/assets/marker-emergency.svg',
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -36]
 });
 
 let selectedCommunityArea = null;
@@ -35,8 +39,8 @@ document
         }
 
         map.flyTo(
-            [-14.2350, -51.9253],
-            4,
+            [-5, -60], 
+            5,
             { duration: 1.5 }
         );
     });
@@ -168,12 +172,12 @@ Mock.COMMUNITIES.forEach(community => {
 
 function getCommunityRadius(inhabitants) {
     if (inhabitants < 700) {
-        return 12000;
+        return 8000;
     }
 
     if (inhabitants < 1000) {
-        return 18000;
+        return 10000;
     }
 
-    return 25000;
+    return 12000;
 }
